@@ -173,7 +173,7 @@ function smm_maintenance_mode() {
             </style>';
 
             // Sidebar Toggle Button HTML
-            echo '<img id="toggle-login" src="http://localhost/wp-hackathon/wordpress/wp-content/uploads/2024/11/lock.png" onclick="toggleSidebar()">';
+            echo '<img id="toggle-login" src="' . plugins_url('assets/img/lock.png', __FILE__) . '" onclick="toggleSidebar()">';
 
             // Sidebar and Toggle Button Script
             echo '<script>
@@ -189,14 +189,18 @@ function smm_maintenance_mode() {
                     var sidebar = document.getElementById("login-sidebar");
                     var toggleButton = document.getElementById("toggle-login");
 
+                     // PHP-generated paths for images
+        var lockImagePath = "' . plugins_url('assets/img/lock.png', __FILE__) . '";
+        var unlockImagePath = "' . plugins_url('assets/img/unlock.png', __FILE__) . '";
+
                     if (sidebar.style.right === "-240px") {
                         sidebar.style.right = "0";
                         toggleButton.style.right = "240px"; // Adjust to keep the button visible
-                        toggleButton.src = "http://localhost/wp-hackathon/wordpress/wp-content/uploads/2024/11/unlock.png";
+            toggleButton.src = unlockImagePath;
                     } else {
                         sidebar.style.right = "-240px";
                         toggleButton.style.right = "10px"; // Move back to outside the sidebar
-                        toggleButton.src = "http://localhost/wp-hackathon/wordpress/wp-content/uploads/2024/11/lock.png";
+            toggleButton.src = lockImagePath;
                     }
                 }
             </script>';
