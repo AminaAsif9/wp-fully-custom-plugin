@@ -18,7 +18,7 @@ add_action('wp_enqueue_scripts', 'smm_enqueue_scripts');
 function smm_customize_register($wp_customize) {
     // Add section for maintenance mode settings
     $wp_customize->add_section('smm_settings_section', array(
-        'title'    => __('Background', 'smm'),
+        'title'    => __('Maintenance Mode Settings', 'smm'),
         'priority' => 30,
     ));
 
@@ -61,7 +61,7 @@ function smm_customize_register($wp_customize) {
         'sanitize_callback' => 'sanitize_hex_color',
     ));
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'smm_login_bg_color_control', array(
-        'label'    => __('Login Background Color', 'smm'),
+        'label'    => __('Login Form Background Color', 'smm'),
         'section'  => 'smm_settings_section',
         'settings' => 'smm_login_bg_color',
     )));
@@ -71,7 +71,7 @@ function smm_customize_register($wp_customize) {
         'sanitize_callback' => 'sanitize_hex_color',
     ));
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'smm_login_text_color_control', array(
-        'label'    => __('Login Text Color', 'smm'),
+        'label'    => __('Login Form Text Color', 'smm'),
         'section'  => 'smm_settings_section',
         'settings' => 'smm_login_text_color',
     )));
